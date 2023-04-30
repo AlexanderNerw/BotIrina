@@ -117,7 +117,11 @@ async def reaction(message):
         rand = randint(0, 94)
         await bot.send_message(message.chat.id, prosto[rand])
 
+async def main(dp):
+    await bot.send_message("1082803262", "Bot succeses starting.")
+
+
 
 if __name__ == '__main__':
     #************************************ ЗАПУСК *************************************
-    executor.start_polling(dp, skip_updates=True)
+    executor.start_polling(dp, skip_updates=True, on_startup=main)
