@@ -1,6 +1,4 @@
-# - *- coding: utf- 8 - *-
-
-from aiogram import Bot, Dispatcher, executor, types
+from aiogram import executor, types
 from random import randint 
 from config import *
 
