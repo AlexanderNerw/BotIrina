@@ -3,8 +3,7 @@
 from aiogram import Bot, Dispatcher, executor, types
 from random import randint 
 
-proxy_url = 'http://proxy.server:3128'
-bot = Bot(token='5596728441:AAFtwdOdxyOzNjHLbD3q13QBw9z50Q5KuaA', proxy=proxy_url)
+bot = Bot(token='5596728441:AAFtwdOdxyOzNjHLbD3q13QBw9z50Q5KuaA')
 dp = Dispatcher(bot)
 
 prosto = ['Я понял, что в жизни мне не хватает двух вещей — кофе и тебя.',
