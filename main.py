@@ -103,19 +103,19 @@ async def start(message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     buttons = ["Коплимент 😏"]
     keyboard.add(*buttons)
-    await message.answer("Это бот для комплиментов на, понял на?", reply_markup = keyboard )
+    await bot.send_message(message.chat.id, "Это бот для комплиментов на, понял на?", reply_markup = keyboard )
 
 
 @dp.message_handler(commands=['compliment'])
 async def compliment(message):
     rand = randint(0, 94)
-    await message.answer(prosto[rand])
+    await bot.send_message(message.chat.id, prosto[rand])
 
 @dp.message_handler(content_types=['text'])
 async def reaction(message):
     if message.text == "Коплимент 😏":
         rand = randint(0, 94)
-        await message.answer(prosto[rand])
+        await bot.send_message(message.chat.id, prosto[rand])
 
 
 if __name__ == '__main__':
