@@ -2,9 +2,7 @@
 
 from aiogram import Bot, Dispatcher, executor, types
 from random import randint 
-
-bot = Bot(token='5596728441:AAFtwdOdxyOzNjHLbD3q13QBw9z50Q5KuaA')
-dp = Dispatcher(bot)
+from config import *
 
 prosto = ['Я понял, что в жизни мне не хватает двух вещей — кофе и тебя.',
 'Ты так красиво улыбнулась, что я забыл, куда шел.',
