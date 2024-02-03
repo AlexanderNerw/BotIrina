@@ -1,1 +1,11 @@
 /venv
+/__pycache__
+/handlers/__pycache__
+/support/__pycache__
+/general/__pycache__
+/general/MyBot.session
+/general/MyBot.session-journal
+/general/Olexander.session
+/general/Olexander.session-journal
+/general/WorkAccount.session
+/general/WorkAccount.session-journal
