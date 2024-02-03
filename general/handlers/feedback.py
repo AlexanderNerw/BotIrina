@@ -1,9 +1,9 @@
-from support.config import CHAT_PRIVATE, ADMIN, bot, dp, feedback_button, exceptions
+from general.config import CHAT_PRIVATE, ADMIN, bot, dp, feedback_button, exceptions
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.dispatcher import FSMContext
 from support.dialogs import general_text
-from support.querry_db import db
+from general.support.querry_db import db
 from handlers.menu import toMenu
 
 

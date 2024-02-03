@@ -1,10 +1,10 @@
-from support.config import Dispatcher, InlineKeyboardButton, InlineKeyboardMarkup, dp, bot, general_text, start_sign_up, \
+from general.config import Dispatcher, InlineKeyboardButton, InlineKeyboardMarkup, dp, bot, general_text, start_sign_up, \
       CallbackQuery, exceptions, KeyboardButton, CHAT_PRIVATE, CHAT_GROUP, ReplyKeyboardRemove, ReplyKeyboardMarkup, ADMIN
 from aiogram.dispatcher.filters.builtin import CommandStart
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.dispatcher import FSMContext
 from aiogram.types import Message
-from support.querry_db import db
+from general.support.querry_db import db
 from handlers.menu import toMenu
 
 

@@ -1,9 +1,9 @@
-from support.config import CallbackQuery, dp, settings, general_text, bot, reverse_info, exceptions, \
+from general.config import CallbackQuery, dp, settings, general_text, bot, reverse_info, exceptions, \
      InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.dispatcher import FSMContext
 from aiogram.types import Message
-from support.querry_db import db
+from general.support.querry_db import db
 from handlers.menu import toMenu
 
 

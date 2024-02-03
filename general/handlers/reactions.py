@@ -1,6 +1,6 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from support.config import dp, bot, exceptions, CHAT_PRIVATE
-from support.querry_db import db
+from general.config import dp, bot, exceptions, CHAT_PRIVATE
+from general.support.querry_db import db
 from handlers.menu import toMenu
 
 

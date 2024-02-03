@@ -1,5 +1,5 @@
-from support.querry_db import db
-from support.config import dp, CallbackQuery, CHAT_PRIVATE, exceptions
+from general.support.querry_db import db
+from general.config import dp, CallbackQuery, CHAT_PRIVATE, exceptions
 from handlers.menu import toMenu
 
 

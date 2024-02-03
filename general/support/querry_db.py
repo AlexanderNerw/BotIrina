@@ -1,8 +1,9 @@
 import pymysql, os, time
 from dotenv import load_dotenv
-from support.config import exceptions
+from config import exceptions
 
-class QuerryDB: # Database and Querry
+
+class QuerryDB: # Database and Querry 
 
     def __init__(self):
         """ Connection to DataBase """
@@ -17,8 +18,8 @@ class QuerryDB: # Database and Querry
                 database=   os.getenv('database'), # pandabase
                 cursorclass=pymysql.cursors.DictCursor)
 
-            self.database_table_name = 'general_user'
-            self.database_answer_test = 'answer_test'
+            self.database_table_name = 'general_user' 
+            self.database_answer_test = 'answer_test' 
 
             print("querry_db.py [INFO] Database Succes Connection")
 
@@ -30,6 +31,7 @@ class QuerryDB: # Database and Querry
                                 TDBeka VARCHAR(255) DEFAULT 'TDBeka', \
                                 TTBeka VARCHAR(255) DEFAULT 'TTBeka', \
                                 TBBeka VARCHAR(255) DEFAULT 'TBBeka', PRIMARY KEY (id));" )
+
 
                 cursor.execute( f"CREATE TABLE IF NOT EXISTS {self.database_table_name} \
                                 (id INT NOT NULL AUTO_INCREMENT, \

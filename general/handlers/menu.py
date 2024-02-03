@@ -1,8 +1,8 @@
-from support.config import dp, bot, general_text, board_menu, CHAT_PRIVATE, CHAT_GROUP, inline_mode_answer_random, inline_mode_name_sex, exceptions, CallbackQuery
+from general.config import dp, bot, general_text, board_menu, CHAT_PRIVATE, CHAT_GROUP, inline_mode_answer_random, inline_mode_name_sex, exceptions, CallbackQuery
 from aiogram.types import InlineQueryResultArticle, InputTextMessageContent, InlineQuery
 import hashlib, random, uuid, handlers.sign_up
 from aiogram.dispatcher import FSMContext
-from support.querry_db import db
+from general.support.querry_db import db
 
 
 ######################################################################################### - ГЛАВНОЕ МЕНЮ ЛИЧНОГО ЧАТА
