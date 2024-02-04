@@ -1,4 +1,4 @@
-from general.config import Dispatcher, InlineKeyboardButton, InlineKeyboardMarkup, dp, bot, general_text, start_sign_up, \
+from support.config import Dispatcher, InlineKeyboardButton, InlineKeyboardMarkup, dp, bot, general_text, start_sign_up, \
       CallbackQuery, exceptions, KeyboardButton, CHAT_PRIVATE, CHAT_GROUP, ReplyKeyboardRemove, ReplyKeyboardMarkup, ADMIN
 from aiogram.dispatcher.filters.builtin import CommandStart
 from aiogram.dispatcher.filters.state import State, StatesGroup
@@ -20,6 +20,7 @@ class ProfileStateGroup(StatesGroup):
 @dp.message_handler(CHAT_PRIVATE, CommandStart())  ## - СТАРТ МЕНЮ ################### 
 async def start(message: Message) -> None:
     try:    
+
 
         if (not db.user_in_database(message.chat.id)) or (not db.user_online(message.chat.id)):  # Пользователя нет в БД или он не онлайн
 
