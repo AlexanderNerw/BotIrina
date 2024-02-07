@@ -1,7 +1,7 @@
 /venv
 /__pycache__
-/handlers/__pycache__
-/support/__pycache__
+/general/handlers/__pycache__
+/general/support/__pycache__
 /general/__pycache__
 /general/MyBot.session
 /general/MyBot.session-journal

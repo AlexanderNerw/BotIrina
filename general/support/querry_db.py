@@ -52,7 +52,7 @@ class QuerryDB: # Database and Querry
 
 ####################### СТАРТОВЫЕ ХЕРНИ #################################
 
-    async def user_have_this(self, get: str,  where: str, where_value: str|int, database = 'user_info'):
+    async def user_have_this(self, get: str,  where: str, where_value: str|int, database = 'user_info', one_info = True):
         """
         Проверяем есть ли уже юзер в базе.
         Возвращает True если его user_id есть в базе, и False если нет.
@@ -62,8 +62,13 @@ class QuerryDB: # Database and Querry
             with self.connection.cursor() as cursor:
                 cursor.execute(
                     f'SELECT {get} FROM `{database}` WHERE `{where}` = {where_value};')
-                result = cursor.fetchone()              
-                return False if result == None else True
+                if one_info:
+                    result = cursor.fetchone()
+                    return False if result == None else True
+            
+                else: 
+                    result = cursor.fetchone()
+                    return False if result == None else True          
 
         except Exception as ex: await exceptions("querry_db.py", 'Database: (user_in_db)', ex)
 
@@ -71,7 +76,7 @@ class QuerryDB: # Database and Querry
 
 # ------------------------------------------------
 
-    async def add_user(self, user_id: str|int):
+    async def add_user(self, user_id: str|int, phone: str|int):
         """
         Добавление нового юзера. 
         Проверяет есть ли юзер в боте, после чего добавляет в бд.
@@ -83,8 +88,9 @@ class QuerryDB: # Database and Querry
                     f'SELECT * FROM {self.table_with_user_info} WHERE user_id = {user_id};')
                 result = cursor.fetchone()                
                 if (True if result == None else False):
-                    cursor.execute(f"INSERT INTO `{self.table_with_user_info}`(`user_id`) VALUES ({user_id});")
+                    cursor.execute(f"INSERT INTO {self.table_with_user_info}(`user_id`,`phone`) VALUES ({user_id}, {phone});")
                     return True
+                else: return False
 
         except Exception as ex:
             await exceptions("querry_db.py", 'Database: (add_user)', ex)
@@ -115,7 +121,7 @@ class QuerryDB: # Database and Querry
 
 # ------------------------------------------------
 
-    async def get_info(self, get: str, where: str, where_value: str|int, database = 'user_info'):
+    async def get_info(self, get: str, where: str, where_value: str|int, database = 'user_info', one_info = True):
         """
         Получение какой-то херни.
         Получает заданную информацию (set) в заданной бд (database) где (user_id)
@@ -124,14 +130,35 @@ class QuerryDB: # Database and Querry
             self.connection.ping()
             with self.connection.cursor() as cursor:
                 cursor.execute(
-                    f'SELECT `{get}` FROM `{database}` WHERE `{where}` = {where_value} LIMIT 1')
-            result = cursor.fetchone()
-            return result[get]
+                    f'SELECT {get} FROM {database} WHERE {where} = {where_value}')
+            if one_info:
+                result = cursor.fetchone()
+                if result != None: return result[get] 
+                else: return ''
+            else: 
+                result = cursor.fetchall()
+                return result
             
         except Exception as ex: await exceptions("querry_db.py", 'Database: (get_info)', ex)
 
         finally: self.connection.close()
 
+    async def get_all_info(self, get: str, database = 'user_info'):
+        """
+        Получение какой-то херни.
+        Получает заданную информацию (set) в заданной бд (database) где (user_id)
+        """
+        try:
+            self.connection.ping()
+            with self.connection.cursor() as cursor:
+                cursor.execute(
+                    f'SELECT {get} FROM {database}')
+                result = cursor.fetchall()
+                return result
+                      
+        except Exception as ex: await exceptions("querry_db.py", 'Database: (get_info)', ex)
+
+        finally: self.connection.close()
 
 # ------------------------------------------------
 

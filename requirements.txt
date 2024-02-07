@@ -4,6 +4,6 @@ Pyrogram==2.0.106
 pymysql==1.1.0
 python-dotenv==1.0.1
 tgcrypto==1.2.5
-
+aioschedule==0.5.2
 
 # pip install -r requirements.txt
